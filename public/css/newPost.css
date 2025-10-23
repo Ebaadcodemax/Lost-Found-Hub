@@ -1,0 +1,52 @@
+/* New Post Form */
+.new-post-form {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.new-post-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.new-post-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.new-post-form input,
+.new-post-form select,
+.new-post-form textarea,
+.new-post-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.new-post-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.new-post-form button {
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.new-post-form button:hover {
+    background-color: #1c5980;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Post</title>
+    <link rel="stylesheet" href="/css/newPost.css" />
+  </head>
+  <body>
+    <div class="new-post-form">
+      <h1>Add a Lost/Found Item</h1>
+      <form action="/post/new" method="POST" enctype="multipart/form-data">
+        <label>Type:</label>
+        <select name="type" required>
+          <option value="Lost">Lost</option>
+          <option value="Found">Found</option></select
+        ><br />
+
+        <label>Title:</label>
+        <input type="text" name="title" required /><br />
+
+        <label>Description:</label>
+        <textarea name="description"></textarea><br />
+
+        <label>Location:</label>
+        <input type="text" name="location" required /><br />
+
+        <label>Contact Info:</label>
+        <input type="text" name="contact" required /><br />
+
+        <label>Your Email (for deleting this post):</label>
+        <input type="email" name="authorEmail" required />
+
+        <label>Upload Photo (optional):</label>
+        <input type="file" name="photo" accept="image/*" />
+        <button type="submit">Add Post</button>
+
+        <button type="submit">Add Post</button>
+      </form>
+    </div>
+  </body>
+</html>
