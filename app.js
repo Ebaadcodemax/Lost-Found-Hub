@@ -1,5 +1,5 @@
 const express = require('express')
-const mongoose = require('mongoose');
+
 const bodyparser = require('body-parser')
 const path = require('path')
 const Post = require('./models/post')
@@ -7,11 +7,17 @@ const postRoutes=require('./routes/postRoute');
 const app = express();
 
 
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/losthub', {
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB Atlas connected ✅"))
+.catch(err => console.log("MongoDB connection error:", err));
 
-}).then(() => console.log("MongoDB Connected"))
-    .catch(err => console.log(err));
+
 
 
 app.use(bodyparser.json());
