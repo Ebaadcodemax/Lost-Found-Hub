@@ -1,4 +1,4 @@
-/* General Body */
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(90deg, rgb(130, 2, 2), rgb(58, 2, 2), rgb(47, 22, 22));
@@ -6,7 +6,7 @@ body {
     color: #333;
 }
 
-/* Headings */
+
 h1,
 h2 {
     text-align: center;
@@ -17,7 +17,7 @@ h2 {
 
 }
 
-/* Links */
+
 .newpostbtn {
     color: #50b4f7;
     border: 0.7px solid rgb(211, 94, 94);
@@ -43,7 +43,6 @@ h2 {
 }
 
 
-/* Forms */
 form {
     max-width: 500px;
     margin: 20px auto;
@@ -83,7 +82,7 @@ button:hover {
     background-color: #1c5980;
 }
 
-/* Post Cards */
+
 .cards {
     display: grid;
 
@@ -97,7 +96,7 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Container for content */
+
 .container {
     max-width: 900px;
     margin: auto;
