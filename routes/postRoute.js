@@ -1,14 +1,12 @@
 const express = require('express');
-const multer = require('multer');
+
 const path = require('path');
 const router = express.Router()
 const Post = require('../models/post')
-const { upload } = require("../config/cloudinary");
 
 
 const { upload } = require("../config/cloudinary");
 
-// File filter for images only
 const fileFilter = (req, file, cb) => {
     const allowedTypes = /jpeg|jpg|png|gif/;
     const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
@@ -20,10 +18,6 @@ const fileFilter = (req, file, cb) => {
         cb('Error: Only images allowed!');
     }
 };
-
-
-
-
 
 
 
@@ -49,7 +43,10 @@ router.post('/post/new', upload.single('photo'), async (req, res) => {
 
 
     const photoUrl = req.file ? req.file.path : "";
-   
+    console.log("🧩 Type of req.file:", typeof req.file);
+    console.log("🧩 req.file full JSON:", JSON.stringify(req.file, null, 2));
+    console.log("🧩 req.file raw (no stringify):", req.file);
+
 
 
     const newPost = new Post({
@@ -63,18 +60,20 @@ router.post('/post/new', upload.single('photo'), async (req, res) => {
 
 
     });
-
     await newPost.save();
+    console.log("🧩 typeof req.file:", typeof (req.file));
+
     res.redirect('/')
+
 
 
 })
 
 router.post('/post/:id/delete', async (req, res) => {
-    const { email } = req.body; 
+    const { email } = req.body;
     const post = await Post.findById(req.params.id);
 
-    if(post.authorEmail === email) {
+    if (post.authorEmail === email) {
         await Post.findByIdAndDelete(req.params.id);
         res.send('Post deleted successfully!');
     } else {
