@@ -5,14 +5,8 @@ const router = express.Router()
 const Post = require('../models/post')
 const { upload } = require("../config/cloudinary");
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/images'); // save in public/images
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // unique filename
-    }
-});
+
+const { upload } = require("../config/cloudinary");
 
 // File filter for images only
 const fileFilter = (req, file, cb) => {
@@ -27,7 +21,7 @@ const fileFilter = (req, file, cb) => {
     }
 };
 
-const upload = multer({ storage, fileFilter });
+
 
 
 
