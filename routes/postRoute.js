@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const router = express.Router()
 const Post = require('../models/post')
+const { upload } = require("../config/cloudinary");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -51,10 +52,10 @@ router.get('/post/new', (req, res) => {
 
 router.post('/post/new', upload.single('photo'), async (req, res) => {
     const { type, title, description, location, contact, authorEmail } = req.body;
-    let photoUrl = '';
-    if (req.file) {
-        photoUrl = '/images/' + req.file.filename;
-    }
+
+
+    const photoUrl = req.file ? req.file.path : "";
+   
 
 
     const newPost = new Post({
